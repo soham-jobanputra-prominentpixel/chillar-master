@@ -17,9 +17,9 @@
     "strict": true,
     "noUnusedLocals": false,
     "noUnusedParameters": true,
-    "erasableSyntaxOnly": true,
+    "erasableSyntaxOnly": false,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
   },
   "include": ["src"]
 }

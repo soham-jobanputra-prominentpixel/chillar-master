@@ -3,7 +3,7 @@ import * as bootstrap from "bootstrap";
 
 function showToast(message: string, bgClass: string): void {
     const template = document.getElementById("toastTemplate")! as HTMLTemplateElement;
-    const clone = template.content.cloneNode(true) as DocumentFragment;
+    const clone = template.content.cloneNode(true) as HTMLElement;
     const toast = clone.querySelector(".toast")!;
 
     toast.classList.add(bgClass);
