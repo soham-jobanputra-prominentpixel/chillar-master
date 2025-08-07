@@ -1,0 +1,35 @@
+.gradient-blue {
+    background: linear-gradient(135deg, #a1c4fd 0%, #c2e9fb 100%);
+    color: #000;
+}
+
+.gradient-pink {
+    background: linear-gradient(135deg, #fbc2eb 0%, #a6c1ee 100%);
+    color: #000;
+}
+
+.gradient-mint {
+    background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    color: #000;
+}
+
+.gradient-sunny {
+    background: linear-gradient(135deg, #fddb92 0%, #d1fdff 100%);
+    color: #000;
+}
+
+.gradient-peach {
+    background: linear-gradient(135deg, #f6d365 0%, #fda085 100%);
+    color: #000;
+}
+
+.gradient-lavender {
+    background: linear-gradient(135deg, #e0c3fc 0%, #8ec5fc 100%);
+    color: #000;
+}
+
+.gradient-dark-blue {
+    background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    color: #000;
+}
