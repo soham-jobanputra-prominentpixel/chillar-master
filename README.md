@@ -29,6 +29,7 @@
 git clone https://github.com/soham-jobanputra-prominentpixel/chillar-master.git
 cd chillar-master
 
-# Run the app (with deno and vite)
+# Install dependencies Run the app (with deno and vite)
+deno install
 deno run dev
 ```
