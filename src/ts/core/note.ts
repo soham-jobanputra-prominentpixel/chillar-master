@@ -1,58 +1,40 @@
+import { notifyError } from "../ui.ts";
+import { getTotalValue, setPiggyBank } from "./piggyBank.ts";
+
 export default class Note {
     
     uuid: string;
+    color: string;
+    amount: number;
 
     constructor(
         public readonly value: number,
-        public amount: number = 0,
     ) {
         this.uuid = crypto.randomUUID();
+        this.color = getRandomColor();
+        this.amount = 0;
+        this.incrementNote = this.incrementNote.bind(this);
+        this.decrementNote = this.decrementNote.bind(this);
     }
 
-
-    render(): HTMLDivElement {
-        const noteTemplate = document.getElementById("noteTemplate")! as HTMLTemplateElement;
-        const note = noteTemplate.content.cloneNode(true) as HTMLDivElement;
-
-        note.id = this.uuid;
-        note.querySelector("noteValue")!.textContent = this.value.toString();
-        note.querySelector("numberOfNotes")!.textContent = this.amount.toString();
-        note.querySelector("plusNote")!
-            .addEventListener(
-                "click",
-                this.incrementNote
-            )
-        note.querySelector("minusNote")!
-            .addEventListener(
-                "click",
-                this.decrementNote
-            )
-        note.querySelector("deleteNote")!
-            .addEventListener(
-                "click",
-                this.deleteNote
-            )
-        
-        return note;
-    }
-
-    incrementNote(): HTMLDivElement {
+    incrementNote(): void {
         this.amount++;
-        return this.render();
+        setPiggyBank(getTotalValue() + this.value);
+        document.getElementById(this.uuid)!
+            .querySelector(".numberOfNotes")!
+            .textContent = this.amount.toString();
     }
 
-    decrementNote(): HTMLDivElement {
-        if(this.amount > 0) {
+    decrementNote(): void {
+        if(this.value <= getTotalValue() && this.amount > 0) {
             this.amount--;
-            return this.render();
-        }
-        throw new NoteDecrementError();
+            setPiggyBank(getTotalValue() - this.value);
+            document.getElementById(this.uuid)!
+                .querySelector(".numberOfNotes")!
+                .textContent = this.amount.toString();
+        } else
+            notifyError("Cannot decrement.");
     }
-
-    deleteNote(): void {
-        document.removeChild(document.getElementById(this.uuid)!);
-    }
-    
 }
 
 
@@ -60,9 +42,15 @@ class NoteDecrementError extends Error {
 
     constructor(message?: string) {
         super(message);
-        this.name = "NoteDecrementError";
         Object.setPrototypeOf(this, NoteDecrementError.prototype);
+        this.name = "NoteDecrementError";
     }
 
+}
+
+function getRandomColor(): "blue" | "pink" | "mint" | "sunny" | "peach" | "lavender" | "dark-blue" {
+    const colors = ["blue", "pink", "mint", "sunny", "peach", "lavender", "dark-blue"] as const;
+    const randomIndex = Math.floor(Math.random() * colors.length);
+    return colors[randomIndex];
 }
 

@@ -87,7 +87,7 @@
     <div class="overlay-container mt-3 mb-5">
       <img src="/src/assets/images/piggy-bank.jpg" alt="Background Image">
       <div class="overlay-dark fw-bold fs-2">
-        $0.00
+        $<span id="totalValue"></span>
       </div>
     </div>
     <!-- Piggy bank finished -->
@@ -112,38 +112,11 @@
     <!-- Notes section starts -->
     <div class="container-fluid px-5">
       <div class="d-flex justify-content-between mb-3">
-        <h3 class="fw-bold">Available Notes:</h3>
+        <h3 class="fw-bold" id="noteCollectionHeading"></h3>
         <button class="btn btn-success fw-bold"  data-bs-toggle="modal" data-bs-target="#addNewNote">Add New Note</button>
       </div>
 
       <div class="d-flex flex-wrap gap-3 justify-content-start" id="noteCollection">
-
-        <template id="noteTemplate">
-          <div
-            class="card"
-            style="width: 15rem"
-          >
-            <div class="card-body text-center">
-              <span class="fs-4"><span class="fw-bold">$ <span class="noteValue"></span></span></span>
-              <br>
-              <span class="fw-bold">X</span>
-              <span class="fs-4"><span class="fw-bold numberOfNotes"></span></span>
-              <div class="d-flex justify-content-center gap-2 mt-3" class="buttons">
-                <button class="btn btn-light plusNote">
-                  <i class="bi bi-plus"></i>
-                </button>
-                <button class="btn btn-danger deleteNote" data-bs-toggle="modal" data-bs-target="#deleteNote">
-                  <i class="bi bi-trash"></i>
-                </button>
-                <button class="btn btn-light minusNote">
-                  <i class="bi bi-dash"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </template>
-
-
       </div>
     </div>
     <hr>
@@ -230,7 +203,7 @@
 
 
     <!-- Recently returned notes section starts -->
-    <div class="container-fluid px-5 mb-5">
+    <!-- <div class="container-fluid px-5 mb-5">
       <div class="d-flex justify-content-between mb-3">
         <h3 class="fw-bold">Recently Returned Notes:</h3>
       </div>
@@ -248,7 +221,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Recently returned notes section finished -->
 
 
@@ -329,29 +302,32 @@
             >
             </button>
           </div>
-          <div class="modal-body">
-            <form class="row g-3">
-              <div class="col-auto">
-                <input
-                  type="number"
-                  class="form-control"
-                  id="input-note"
-                  step="0.001"
-                  min="0"
-                  style="margin-top: 2.5px"
-                  placeholder="Value"
-                >
-              </div>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" id="addNoteButton">Submit</button>
-          </div>
+          <form class="row g-3" id="addNewNoteForm">
+
+            <div class="modal-body">
+                <div class="col-auto">
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="note_value"
+                    step="0.001"
+                    min="0"
+                    style="margin-top: 2.5px"
+                    placeholder="Value"
+                  >
+                </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+
         </div>
       </div>
     </div>
 
-    <div class="modal" tabindex="-1" id="deleteNote">
+    <!-- <div class="modal" tabindex="-1" id="deleteNote">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -373,7 +349,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <!-- Modal section completes -->
 
   </body>
