@@ -1,5 +1,5 @@
 import { notifyError } from "../ui.ts";
-import Note from "./note.ts";
+import Note, { type BaseNote } from "./note.ts";
 import { getTotalValue, setPiggyBank } from "./piggyBank.ts";
 
 
@@ -12,10 +12,41 @@ export default class NoteCollection {
         this._notes = []
     }
 
-    init(): void {
+
+    getNotes(): BaseNote[] {
+        const notes: BaseNote[] = [];
+        this._notes.forEach(currNote => notes.push(
+            {
+                uuid: currNote.uuid,
+                value: currNote.value,
+                amount: currNote.amount,
+                color: currNote.color
+            }
+        ));
+        return notes;
+    }
+
+
+    getNoteByUUID(uuid: string): Note {
+        return this._notes.find(note => note.uuid === uuid)!;
+    }
+
+
+    decrementAll(note_uuids: string[]): void {
+        for(const uuid of note_uuids) {
+            this.getNoteByUUID(uuid).decrementNote();
+        }
+    }
+
+
+    private _resetCollection(): void {
         document
             .getElementById("noteCollectionHeading")!
             .textContent = "No Notes Available";
+    }
+
+    init(): void {
+        this._resetCollection();
         
         document
             .getElementById("addNewNoteForm")!
@@ -50,6 +81,8 @@ export default class NoteCollection {
             const deletedNote = this._notes.splice(index, 1)[0];
             document.getElementById(deletedNote.uuid)?.remove();
             setPiggyBank(getTotalValue() - (deletedNote.value * deletedNote.amount));
+            if(this._notes.length === 0)
+                this._resetCollection();
         }
         else
             notifyError("Cannot find note.")

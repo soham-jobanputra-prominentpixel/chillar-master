@@ -25,3 +25,8 @@ export const notifyError = (message: string) => showToast(message, "bg-danger");
 export const notifyInfo = (message: string) => showToast(message, "bg-info");
 
 
+
+export function setTransaction(value: string): void {
+    document.getElementById("cashToReturn")!
+                    .innerHTML = value
+}

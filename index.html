@@ -43,7 +43,7 @@
 
 
   
-  <body>
+  <body class="bg-light">
 
     <!-- Navbar starts -->
     <nav class="navbar navbar-dark bg-dark px-3 sticky-top">
@@ -84,8 +84,8 @@
 
 
     <!-- Piggy bank starts -->
-    <div class="overlay-container mt-3 mb-5">
-      <img src="/src/assets/images/piggy-bank.jpg" alt="Background Image">
+    <div class="overlay-container mt-3 mb-5 border rounded p-2" style="margin: auto;">
+      <img src="/src/assets/images/piggy-bank.jpg" alt="Background Image" class="img-fluid">
       <div class="overlay-dark fw-bold fs-2">
         $<span id="totalValue"></span>
       </div>
@@ -145,39 +145,32 @@
 
     <!-- Transaction section starts -->
     <div class="container-fluid px-5">
-      <div class="d-flex flex-wrap justify-content-between gap-3">
-        <div class="overlay-container mt-3 mb-5">
-          <span class="ms-2 fw-bold">Given Cash</span>
-          <img src="/src/assets/images/given-cash.jpg" alt="Background Image">
-          <div class="overlay-dark fw-bold fs-2">
-            <form class="row g-3">
-              <div class="col-auto">
-                <input
-                  type="number"
-                  class="form-control"
-                  id="input-cash"
-                  step="0.001"
-                  min="0"
-                  style="margin-top: 2.5px"
-                >
-              </div>
-              <div class="col-auto">
-                <button type="submit" class="btn btn-primary mb-3 fw-bold">
-                  Submit
-                </button>
-              </div>
-            </form>
-          </div>
-        </div>
+      <div class="d-flex justify-content-between gap-5">
+        <form id="paymentForm" class="card p-4 shadow-sm" style="max-width: 400px;">
 
-        <div class="overlay-container mt-3 mb-5">
+          <div class="mb-3">
+              <label for="billAmount" class="form-label">Bill to be paid</label>
+              <input type="number" class="form-control" id="billAmount" name="billAmount" placeholder="Value" min="0" step="0.0001" required>
+          </div>
+
+          <div class="mb-3">
+              <label for="paidAmount" class="form-label">Paid amount</label>
+              <input type="number" class="form-control" id="paidAmount" name="paidAmount" placeholder="Value" min="0" step="0.0001" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">Submit Payment</button>
+        </form>
+
+
+        <div class="overlay-container mt-3 mb-5 border rounded p-2">
           <span class="ms-2 fw-bold">Cash to Return</span>
           <img src="/src/assets/images/return-cash.jpg" alt="Background Image">
-          <div class="overlay-dark fw-bold fs-2">
+          <div class="overlay-dark fw-bold fs-2" id="cashToReturn">
             $0.00
-            <!-- <i class="bi bi-x-lg text-danger" style="font-size: 10rem;"></i> -->
           </div>
         </div>
+        
+
       </div>
     </div>
     <!-- Transaction section starts -->
@@ -203,8 +196,8 @@
 
 
     <!-- Recently returned notes section starts -->
-    <!-- <div class="container-fluid px-5 mb-5">
-      <div class="d-flex justify-content-between mb-3">
+    <div class="container-fluid px-5 mb-5" id="recentlyReturnedNotes">
+      <!-- <div class="d-flex justify-content-between mb-3">
         <h3 class="fw-bold">Recently Returned Notes:</h3>
       </div>
 
@@ -220,8 +213,8 @@
             <span class="fs-4"><span class="fw-bold">4</span></span>
           </div>
         </div>
-      </div>
-    </div> -->
+      </div> -->
+    </div>
     <!-- Recently returned notes section finished -->
 
 
@@ -310,7 +303,7 @@
                     type="number"
                     class="form-control"
                     name="note_value"
-                    step="0.001"
+                    step="0.0001"
                     min="0"
                     style="margin-top: 2.5px"
                     placeholder="Value"

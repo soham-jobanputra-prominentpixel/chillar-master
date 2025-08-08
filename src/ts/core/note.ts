@@ -1,7 +1,15 @@
 import { notifyError } from "../ui.ts";
 import { getTotalValue, setPiggyBank } from "./piggyBank.ts";
 
-export default class Note {
+
+export interface BaseNote {
+    uuid: string,
+    amount: number,
+    value: number,
+    color: string
+}
+
+export default class Note implements BaseNote {
     
     uuid: string;
     color: string;
@@ -19,7 +27,7 @@ export default class Note {
 
     incrementNote(): void {
         this.amount++;
-        setPiggyBank(getTotalValue() + this.value);
+        setPiggyBank(Number((getTotalValue() + this.value).toFixed(4)));
         document.getElementById(this.uuid)!
             .querySelector(".numberOfNotes")!
             .textContent = this.amount.toString();
@@ -28,7 +36,7 @@ export default class Note {
     decrementNote(): void {
         if(this.value <= getTotalValue() && this.amount > 0) {
             this.amount--;
-            setPiggyBank(getTotalValue() - this.value);
+            setPiggyBank(Number((getTotalValue() - this.value).toFixed(4)));
             document.getElementById(this.uuid)!
                 .querySelector(".numberOfNotes")!
                 .textContent = this.amount.toString();
