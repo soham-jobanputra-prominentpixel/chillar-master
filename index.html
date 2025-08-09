@@ -1,14 +1,348 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/chillar-master/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-    <script type="module" crossorigin src="/chillar-master/assets/index-hyKXfo1O.js"></script>
-    <link rel="stylesheet" crossorigin href="/chillar-master/assets/index-BaiKPFAq.css">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="/chillar-master/apple-touch-icon.png">
+    <link rel="shortcut icon" href="/chillar-master/favicon.ico" type="image/x-icon">
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="/chillar-master/android-chrome-192x192.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="512x512"
+      href="/chillar-master/android-chrome-512x512.png"
+    />
+    <link rel="icon" type="image/png" sizes="32x32" href="/chillar-master/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/chillar-master/favicon-16x16.png">
+    <link rel="manifest" href="/chillar-master/site.webmanifest">
+    <title>ChillarMaster</title>
+
+    <script type="module" crossorigin src="/chillar-master/assets/index-BjgpX9Tn.js"></script>
+    <link rel="stylesheet" crossorigin href="/chillar-master/assets/index-D4pR1KeL.css">
   </head>
-  <body>
-    <div id="app"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <body class="bg-light">
+
+    <!-- Navbar starts -->
+    <nav class="navbar navbar-dark bg-dark px-3 sticky-top">
+      <div
+        class="container-fluid d-flex justify-content-between align-items-center"
+      >
+        <div class="d-flex align-items-center">
+          <img
+            src="/chillar-master/assets/logo-DAU_1wQk.png"
+            alt="Logo"
+            class="me-3"
+            style="height: 40px"
+          >
+          <span class="navbar-brand mb-0 h1 fw-bold">Chillar Master</span>
+        </div>
+
+        <div>
+          <a
+            href="https://github.com/soham-jobanputra-prominentpixel/chillar-master"
+            target="_blank"
+            class="text-white text-decoration-none"
+          >
+            <i class="bi bi-github me-1 fs-3"></i>
+          </a>
+        </div>
+      </div>
+    </nav>
+    <!-- Navbar finished -->
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Piggy bank starts -->
+    <div class="overlay-container mt-3 mb-5 border rounded p-2" style="margin: auto;">
+      <img src="/chillar-master/assets/piggy-bank-bdPkaLhg.jpg" alt="Background Image" class="img-fluid">
+      <div class="overlay-dark fw-bold fs-2">
+        $<span id="totalValue"></span>
+      </div>
+    </div>
+    <!-- Piggy bank finished -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+    <!-- Notes section starts -->
+    <div class="container-fluid px-5">
+      <div class="d-flex justify-content-between mb-3">
+        <h3 class="fw-bold" id="noteCollectionHeading"></h3>
+        <button class="btn btn-success fw-bold"  data-bs-toggle="modal" data-bs-target="#addNewNote">Add New Note</button>
+      </div>
+
+      <div class="d-flex flex-wrap gap-3 justify-content-start" id="noteCollection">
+      </div>
+    </div>
+    <hr>
+    <!-- Notes section finished -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Transaction section starts -->
+    <div class="container-fluid px-5">
+      <div class="d-flex justify-content-between gap-5">
+        <form id="paymentForm" class="card p-4 shadow-sm" style="max-width: 400px;">
+
+          <div class="mb-3">
+              <label for="billAmount" class="form-label">Bill to be paid</label>
+              <input type="number" class="form-control" id="billAmount" name="billAmount" placeholder="Value" min="0" step="0.0001" required>
+          </div>
+
+          <div class="mb-3">
+              <label for="paidAmount" class="form-label">Paid amount</label>
+              <input type="number" class="form-control" id="paidAmount" name="paidAmount" placeholder="Value" min="0" step="0.0001" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">Submit Payment</button>
+        </form>
+
+
+        <div class="overlay-container mt-3 mb-5 border rounded p-2">
+          <span class="ms-2 fw-bold">Cash to Return</span>
+          <img src="/chillar-master/assets/return-cash-CcCAy67w.jpg" alt="Background Image">
+          <div class="overlay-dark fw-bold fs-2" id="cashToReturn">
+            $0.00
+          </div>
+        </div>
+        
+
+      </div>
+    </div>
+    <!-- Transaction section starts -->
+
+    <hr>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Recently returned notes section starts -->
+    <div class="container-fluid px-5 mb-5" id="recentlyReturnedNotes">
+      <!-- <div class="d-flex justify-content-between mb-3">
+        <h3 class="fw-bold">Recently Returned Notes:</h3>
+      </div>
+
+      <div class="d-flex flex-wrap gap-3 justify-content-start">
+        <div
+          class="card gradient-mint"
+          style="width: 15rem"
+        >
+          <div class="card-body text-center">
+            <span class="fs-4"><span class="fw-bold">$5.00</span></span>
+            <br>
+            <span class="fw-bold">X</span>
+            <span class="fs-4"><span class="fw-bold">4</span></span>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    <!-- Recently returned notes section finished -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Toast section starts -->
+    <div id="toastBox"></div>
+
+    <template id="toastTemplate">
+      <div
+        class="toast align-items-center text-white border-0 mt-2"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
+        <div class="d-flex">
+          <div class="toast-body">
+            <!-- Message will go here -->
+          </div>
+          <button
+            type="button"
+            class="btn-close btn-close-white me-2 m-auto"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          >
+          </button>
+        </div>
+      </div>
+    </template>
+    <!-- Toast section finished -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+    <!-- Modal section starts -->
+    <div class="modal" tabindex="-1" id="addNewNote">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Add new note</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+            </button>
+          </div>
+          <form class="row g-3" id="addNewNoteForm">
+
+            <div class="modal-body">
+                <div class="col-auto">
+                  <input
+                    type="number"
+                    class="form-control"
+                    name="note_value"
+                    step="0.0001"
+                    min="0"
+                    style="margin-top: 2.5px"
+                    placeholder="Value"
+                  >
+                </div>
+            </div>
+
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="modal" tabindex="-1" id="deleteNote">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Delete confirmation</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+            </button>
+          </div>
+          <div class="modal-body">
+              Are you sure you want to delete the note?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary">Cancel</button>
+            <button type="button" class="btn btn-danger">Yes, delete</button>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- Modal section completes -->
+
   </body>
 </html>
