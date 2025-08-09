@@ -27,8 +27,8 @@ class NoteAlreadyExistsError extends Error {
 
     constructor(message?: string) {
         super(message);
-        this.name = "NoteAlreadyExistsError";
         Object.setPrototypeOf(this, NoteAlreadyExistsError.prototype);
+        this.name = "NoteAlreadyExistsError";
     }
 
 }

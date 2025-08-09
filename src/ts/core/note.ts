@@ -60,8 +60,8 @@ class NoteDecrementError extends Error {
 
     constructor(message?: string) {
         super(message);
-        this.name = "NoteDecrementError";
         Object.setPrototypeOf(this, NoteDecrementError.prototype);
+        this.name = "NoteDecrementError";
     }
 
 }
