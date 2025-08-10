@@ -3,7 +3,7 @@ import * as bootstrap from "bootstrap"
 import { notifyError, notifyInfo, setTransaction } from "./ui.ts";
 import NoteCollection from "./core/note_list.ts";
 import { setPiggyBank } from "./core/piggyBank.ts";
-import { memoizedAmounts, calculateResult2 } from "./core/calculator.ts";
+import { memoizedAmounts, calculateResult } from "./core/calculator.ts";
 
 
 const toastElList = document.querySelectorAll('.toast')
@@ -40,7 +40,7 @@ document.getElementById("paymentForm")!
                 notifyInfo("Nothing to return, bill paid successfully");
             } else {
                 memoizedAmounts.length = 0;
-                const calculatedResult = calculateResult2(Number((paid - bill).toFixed(4)), noteCollection.getNotes())
+                const calculatedResult = calculateResult(Number((paid - bill).toFixed(4)), noteCollection.getNotes())
                 // const finalResult = calculatedResult === Number.MAX_SAFE_INTEGER ? -1 : calculatedResult;
                 if(calculatedResult !== -1) {
                     setTransaction(`$${(paid - bill).toFixed(2)}`);

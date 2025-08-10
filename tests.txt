@@ -1,0 +1,54 @@
+✅ Test Case 1: Exact return with decimals — possible
+Notes: {100: 1, 50: 1, 20: 2, 0.5: 4}
+Total: 190.5
+Purchase: 70
+Return amount: 120.5
+Expected: ✅ Possible
+
+
+✅ Test Case 2: Not enough small notes — not possible
+Notes: {100: 1, 20: 1, 0.5: 1}
+Total: 140.5
+Purchase: 119
+Return amount: 21.5
+Expected: ❌ Not possible
+
+
+✅ Test Case 3: Exact change — possible
+Notes: {10: 2, 5: 1, 1: 2, 0.25: 4}
+Total: 50
+Purchase: 33.0
+Return amount: 17.0
+Expected: ✅ Possible
+
+
+✅ Test Case 4: Small return, large notes only — not possible
+Notes: {100: 2, 50: 1}
+Total: 250
+Purchase: 247
+Return amount: 3.0
+Expected: ❌ Not possible
+
+
+✅ Test Case 5: Decimal return with mix — possible
+Notes: {1: 5, 0.5: 3, 0.1: 10}
+Total: 10
+Purchase: 6.9
+Return amount: 3.1
+Expected: ✅ Possible
+
+
+✅ Test Case 6: No notes at all — not possible
+Notes: {}
+Total: 100
+Purchase: 70
+Return amount: 30
+Expected: ❌ Not possible
+
+
+✅ Test Case 7: Exact float edge case — possible
+Notes: {0.1: 10, 0.05: 2}
+Total: 1.0
+Purchase: 0.75
+Return amount: 0.25
+Expected: ✅ Possible
