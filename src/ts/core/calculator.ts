@@ -1,16 +1,6 @@
 import type { BaseNote } from "./note.ts";
 
 
-export class Result {
-
-    constructor(
-        public readonly cashToReturn: number,
-        public readonly notesCombinations: BaseNote[][],
-    ) {}
-
-}
-
-
 export const memoizedAmounts: Array<string[] | -1> = [];
 
 
@@ -37,11 +27,3 @@ export function calculateResult(amount: number, notes: BaseNote[]): string[] | -
 
     return memoizedAmounts[amount] = answer;
 }
-
-
-// export function calculatedResult2(amount: number, notes: BaseNote[]): string[][] {
-
-//     if(amount === 0)
-//         return [];
-
-// }

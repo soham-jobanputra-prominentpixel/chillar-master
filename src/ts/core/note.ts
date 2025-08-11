@@ -46,16 +46,6 @@ export default class Note implements BaseNote {
 }
 
 
-class NoteDecrementError extends Error {
-
-    constructor(message?: string) {
-        super(message);
-        Object.setPrototypeOf(this, NoteDecrementError.prototype);
-        this.name = "NoteDecrementError";
-    }
-
-}
-
 function getRandomColor(): "blue" | "pink" | "mint" | "sunny" | "peach" | "lavender" | "dark-blue" {
     const colors = ["blue", "pink", "mint", "sunny", "peach", "lavender", "dark-blue"] as const;
     const randomIndex = Math.floor(Math.random() * colors.length);

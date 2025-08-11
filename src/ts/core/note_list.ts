@@ -150,24 +150,3 @@ export default class NoteCollection {
 }
 
 
-// class NoteAlreadyExistsError extends Error {
-
-//     constructor(message?: string) {
-//         super(message);
-//         Object.setPrototypeOf(this, NoteAlreadyExistsError.prototype);
-//         this.name = "NoteAlreadyExistsError";
-//     }
-
-// }
-
-
-// class InvalidInputError extends Error {
-
-//     constructor(message?: string) {
-//         super(message);
-//         Object.setPrototypeOf(this, InvalidInputError.prototype);
-//         this.name = "InvalidInputError";
-//     }
-
-// }
-
