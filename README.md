@@ -32,4 +32,8 @@ cd chillar-master
 # Install dependencies and run the app (with deno and vite)
 deno install
 deno run dev
+
+# OR If you are using Node then use below commands to install dependencies and run project:
+npm install
+npm run dev
 ```
