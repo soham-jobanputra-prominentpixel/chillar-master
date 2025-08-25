@@ -1,12 +1,12 @@
-let totalValue = 0;
+let totalMoneyAmount = 0;
 
 
-export function setPiggyBank(value: number) {
-    totalValue = Number(value.toFixed(4));
-    document.getElementById("totalValue")!.textContent = value.toString();
+export function setPiggyBank(newMoneyAmount: number) {
+    totalMoneyAmount = Number(newMoneyAmount.toFixed(4));
+    document.getElementById("totalValue")!.textContent = newMoneyAmount.toString();
 }
 
 
 export function getTotalValue(): number {
-    return totalValue;
+    return totalMoneyAmount;
 }
